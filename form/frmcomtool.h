@@ -40,7 +40,7 @@ private slots:
     void initForm();            //初始化窗体数据
     void initConfig();          //初始化配置文件
     void saveConfig();          //保存配置文件
-    void readData();            //读取串口数据
+    void readSerialData();      //读取串口数据
     void sendData();            //发送串口数据
     void sendData(QString data);//发送串口数据带参数
     void saveData();            //保存串口数据

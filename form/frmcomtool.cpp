@@ -31,7 +31,7 @@ void frmComTool::initForm()
     //读取数据
     timerRead = new QTimer(this);
     timerRead->setInterval(100);
-    connect(timerRead, SIGNAL(timeout()), this, SLOT(readData()));
+    connect(timerRead, SIGNAL(timeout()), this, SLOT(readSerialData()));
 
     //发送数据
     timerSend = new QTimer(this);
@@ -298,7 +298,7 @@ void frmComTool::append(int type, const QString &data, bool clear)
     currentCount++;
 }
 
-void frmComTool::readData()
+void frmComTool::readSerialData()
 {
     if (com->bytesAvailable() <= 0) {
         return;

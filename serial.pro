@@ -4,10 +4,9 @@ greaterThan(QT_MAJOR_VERSION, 5): QT += core5compat
 
 TARGET      = comtool
 TEMPLATE    = app
-DESTDIR     = $$PWD/../bin
+DESTDIR     = $$PWD/bin
 RC_FILE     = qrc/main.rc
 
-HEADERS     += head.h
 SOURCES     += main.cpp
 RESOURCES   += qrc/main.qrc
 CONFIG      += warn_off

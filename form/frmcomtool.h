@@ -41,8 +41,8 @@ private slots:
     void initConfig();          //初始化配置文件
     void saveConfig();          //保存配置文件
     void readSerialData();      //读取串口数据
-    void sendData();            //发送串口数据
-    void sendData(QString data);//发送串口数据带参数
+    void sendSerialData();            //发送串口数据
+    void sendSerialData(QString data);//发送串口数据带参数
     void saveData();            //保存串口数据
 
     void changeEnable(bool b);  //改变状态

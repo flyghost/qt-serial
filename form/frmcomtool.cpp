@@ -35,8 +35,8 @@ void frmComTool::initForm()
 
     //发送数据
     timerSend = new QTimer(this);
-    connect(timerSend, SIGNAL(timeout()), this, SLOT(sendData()));
-    connect(ui->btnSend, SIGNAL(clicked()), this, SLOT(sendData()));
+    connect(timerSend, SIGNAL(timeout()), this, SLOT(sendSerialData()));
+    connect(ui->btnSend, SIGNAL(clicked()), this, SLOT(sendSerialData()));
 
     //保存数据
     timerSave = new QTimer(this);
@@ -325,7 +325,7 @@ void frmComTool::readSerialData()
             int count = AppData::Keys.count();
             for (int i = 0; i < count; i++) {
                 if (buffer.startsWith(AppData::Keys.at(i))) {
-                    sendData(AppData::Values.at(i));
+                    sendSerialData(AppData::Values.at(i));
                     break;
                 }
             }
@@ -343,7 +343,7 @@ void frmComTool::readSerialData()
     }
 }
 
-void frmComTool::sendData()
+void frmComTool::sendSerialData()
 {
     QString str = ui->cboxData->currentText();
     if (str.isEmpty()) {
@@ -351,7 +351,7 @@ void frmComTool::sendData()
         return;
     }
 
-    sendData(str);
+    sendSerialData(str);
 
     if (ui->ckAutoClear->isChecked()) {
         ui->cboxData->setCurrentIndex(-1);
@@ -359,7 +359,7 @@ void frmComTool::sendData()
     }
 }
 
-void frmComTool::sendData(QString data)
+void frmComTool::sendSerialData(QString data)
 {
     if (com == 0 || !com->isOpen()) {
         return;

@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     AppData::readDeviceData();
 
     frmComTool w;
-    w.setWindowTitle("串口调试助手 V2022");
+    w.setWindowTitle("serial monitor   (powered by creekwater)");
     w.resize(900, 650);
     QUIHelper::setFormInCenter(&w);
     w.show();
